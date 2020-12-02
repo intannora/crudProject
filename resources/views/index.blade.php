@@ -7,45 +7,51 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+    <link href="{{ url('/css/custom.css') }}" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    <link href="{{ url('/css/signin.css') }}" rel="stylesheet">
-
-    <title>Login</title>
+    <title>User Index</title>
   </head>
   <body>
-    <form class="form-signin">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
+
+    <div class="container">
+
+      <div class="float-right">
+        <a href="" >Add New User</button></a>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <button class="btn btn-lg btn-default btn-block" type="submit">Register</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
-    </form>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Status</th>
+            <th scope="col">Created On</th>
+            <th scope="col">Last Updated</th>
+            <th scope="col" colspan="2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          @foreach($users as $user)
+          <tr>
+            <td>{{$user['id']}}</td>
+            <td>{{$user['name']}}</td>
+            <td>{{$user['email']}}</td>
+            <td>{{$user['gender']}}</td>
+            <td>{{$user['status']}}</td>
+            <td>{{$user['created_at']}}</td>
+            <td>{{$user['updated_at']}}</td>
+            <td><a href="">Update</a></td>
+            <td><a href="">Delete</a></td>
+          </tr>
+          @endforeach
+          
+        </tbody>
+      </table>
+
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
