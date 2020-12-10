@@ -13,9 +13,13 @@
   </head>
   <body>
 
+    @include('header')
+
     <div class="container">
 
       <div class="float-right">
+        <a href="" >Import Excel</button></a> &emsp;
+        <a href="" >Import CSV</button></a> &emsp;
         <a href="" >Add New User</button></a>
       </div>
 
